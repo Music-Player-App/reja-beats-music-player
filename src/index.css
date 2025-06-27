@@ -704,6 +704,137 @@ h2 {
   margin: 0 0.5rem 0 0;
 }
 
+/* ===== Profile Page ===== */
+.profile-page {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  color: #f0f0f0;
+}
+
+/* Section headings */
+.profile-page h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: #1db954;
+}
+
+/* Change Password heading */
+.profile-page h3 {
+  margin: 1.5rem 0 1rem;
+  font-size: 1.25rem;
+  color: #1db954;
+  text-align: center;
+}
+
+/* Forms */
+.profile-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Inputs */
+.profile-page input[type="text"],
+.profile-page input[type="email"],
+.profile-page input[type="password"] {
+  padding: 0.75rem 1rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #2b2b2b;
+  color: #f0f0f0;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.profile-page input:focus {
+  outline: none;
+  border-color: #1db954;
+}
+
+/* Buttons */
+.profile-page button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Update & Change Password buttons */
+.profile-page form button {
+  background: #1db954;
+  color: #fff;
+}
+
+.profile-page form button:hover {
+  background: #17a74a;
+}
+
+.profile-page form button:active {
+  transform: scale(0.98);
+}
+
+/* Delete button */
+.profile-page .delete-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  background: #e63946;
+  color: #fff;
+}
+
+.profile-page .delete-btn:hover {
+  background: #cc2e3a;
+}
+
+.profile-page .delete-btn:active {
+  transform: scale(0.98);
+}
+
+/* Success & Error messages */
+.profile-page .success,
+.profile-page .error {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.profile-page .success {
+  color: #1db954;
+}
+
+.profile-page .error {
+  color: #e63946;
+}
+
+/* Responsive tweaks */
+@media (min-width: 600px) {
+  .profile-page {
+    max-width: 500px;
+    padding: 2rem;
+  }
+
+  .profile-page h2 {
+    font-size: 2rem;
+  }
+
+  .profile-page h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-page input,
+  .profile-page button {
+    font-size: 1.1rem;
+  }
+}
+
+
 
 /* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px) {
