@@ -6,22 +6,22 @@ const Home = () => {
   const [error, setError] = useState(null);
 
   const fetchSongs = (searchTerm = '') => {
-  const url = `${import.meta.env.VITE_API_URL}/songs?q=${encodeURIComponent(searchTerm)}`;
+    const url = `${import.meta.env.VITE_API_URL}/api/songs?q=${encodeURIComponent(searchTerm)}`;
 
-  fetch(url)
-    .then(res => {
-      if (!res.ok) throw new Error('Network error');
-      return res.json();
-    })
-    .then(data => {
-      setSongs(data);
-      setError(data.length === 0 ? 'No songs found.' : null);
-    })
-    .catch(() => {
-      setError('Something went wrong while fetching songs.');
-      setSongs([]);
-    });
-};
+    fetch(url)
+      .then(res => {
+        if (!res.ok) throw new Error('Network error');
+        return res.json();
+      })
+      .then(data => {
+        setSongs(data);
+        setError(data.length === 0 ? 'No songs found.' : null);
+      })
+      .catch(() => {
+        setError('Something went wrong while fetching songs.');
+        setSongs([]);
+      });
+  };
 
   useEffect(() => {
     fetchSongs();

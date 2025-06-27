@@ -21,19 +21,21 @@ function Login({ onLogin }) {
     setError('');
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/users?username=${form.username}`);
-      const users = await res.json();
-      const user = users.find(u => u.password === form.password);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify(form),
+      });
 
-      if (user) {
-        localStorage.setItem('loggedInUser', JSON.stringify(user));
-        onLogin(user);
-        navigate('/add-song');
-      } else {
-        setError('❌ Invalid credentials');
-      }
+      if (!res.ok) throw new Error('Login failed');
+
+      const user = await res.json();
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      onLogin(user);
+      navigate('/add-song');
     } catch {
-      setError('❌ Login failed');
+      setError('❌ Invalid credentials or server error');
     }
   };
 
