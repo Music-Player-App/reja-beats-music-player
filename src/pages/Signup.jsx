@@ -23,7 +23,13 @@ function Signup() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (!res.ok) throw new Error('Signup failed');
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || 'Signup failed');
+      }
+
       setMessage('✅ Signup successful! You can now log in.');
       setForm({ username: '', email: '', password: '' });
     } catch (err) {
@@ -64,7 +70,12 @@ function Signup() {
         />
         <button type="submit">Sign Up</button>
       </form>
-      {message && <p>{message}</p>}
+
+      {message && (
+        <p style={{ marginTop: '1rem', color: message.startsWith('✅') ? 'lightgreen' : 'salmon' }}>
+          {message}
+        </p>
+      )}
     </div>
   );
 }
