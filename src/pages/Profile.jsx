@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // ← import useNavigate
 
 function Profile() {
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({ username: '', email: '' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();  // ← initialize navigate
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/profile`, {
@@ -15,7 +17,7 @@ function Profile() {
         setUser(data);
         setFormData({ username: data.username, email: data.email });
       })
-      .catch(err => setError('Failed to load profile'));
+      .catch(() => setError('Failed to load profile'));
   }, []);
 
   const handleChange = (e) => {
@@ -52,8 +54,9 @@ function Profile() {
       });
 
       if (!res.ok) throw new Error();
-      alert("Your profile was deleted.");
-      // Optional: redirect or logout user
+
+      // After deletion, redirect to Hero page
+      navigate('/');  // ← navigate to home
     } catch {
       setError('Failed to delete profile');
     }
