@@ -59,10 +59,12 @@ const Home = () => {
             data-aos="zoom-in"
             data-aos-delay={i * 50}
           >
-            <img src={song.artworkUrl100} alt={song.trackName} />
-            <h3>{song.trackName}</h3>
-            <p>{song.artistName}</p>
-            <audio controls src={song.previewUrl}></audio>
+            {song.album_cover && (
+              <img src={song.album_cover} alt={song.title} />
+            )}
+            <h3>{song.title}</h3>
+            <p>{song.artist}</p>
+            <audio controls src={song.url}></audio>
           </div>
         ))}
       </div>
