@@ -1,6 +1,15 @@
 # Music Search Player 
 
 Music Search Player is a React-based web app that allows users to search for music using the iTunes API. It displays a list of songs based on the search query and allows users to preview each song using an audio player.
+---
+Connected Backend
+This app connects to a custom backend service (Music-Player-Backend) that handles:
+
+User authentication (JWT)
+
+Uploading and managing user songs
+
+Media file storage with Cloudinary
 
 ##  How It Works
 
