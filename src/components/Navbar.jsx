@@ -1,5 +1,6 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useState } from 'react';
+import { User } from 'lucide-react'; // profile icon
 
 function Navbar({ user }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +26,13 @@ function Navbar({ user }) {
         <li><NavLink to="/about">About Us</NavLink></li>
       </ul>
 
-      {/* Desktop Login/Logout */}
+      {/* Desktop Profile & Login/Logout */}
       <div className="navbar-login desktop-nav">
+        {user && (
+          <Link to="/profile" className="icon-btn" title="My Profile">
+            <User size={20} />
+          </Link>
+        )}
         {user ? (
           <Link to="/logout" className="login-btn">Log out</Link>
         ) : (
@@ -45,6 +51,11 @@ function Navbar({ user }) {
           <li><NavLink to="/add-song" onClick={closeMenu}>Add Song</NavLink></li>
           <li><NavLink to="/about" onClick={closeMenu}>About Us</NavLink></li>
           <li className="mobile-login">
+            {user && (
+              <Link to="/profile" className="icon-btn" onClick={closeMenu} title="My Profile">
+                <User size={20} />
+              </Link>
+            )}
             {user ? (
               <Link to="/logout" className="login-btn" onClick={closeMenu}>Log out</Link>
             ) : (
