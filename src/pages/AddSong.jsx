@@ -29,7 +29,7 @@ function AddSong() {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:3000/songs', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/songs`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

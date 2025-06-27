@@ -5,9 +5,9 @@ function Logout({ onLogout }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.removeItem('loggedInUser'); // ✅ remove from storage
-    onLogout(); // ✅ clear user in App
-    navigate('/'); // ✅ redirect to Hero
+    localStorage.removeItem('loggedInUser'); 
+    onLogout(); 
+    navigate('/'); 
   }, [onLogout, navigate]);
 
   return null;

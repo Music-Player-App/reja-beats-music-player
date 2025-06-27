@@ -21,7 +21,7 @@ function Login({ onLogin }) {
     setError('');
 
     try {
-      const res = await fetch(`http://localhost:3000/users?username=${form.username}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/users?username=${form.username}`);
       const users = await res.json();
       const user = users.find(u => u.password === form.password);
 

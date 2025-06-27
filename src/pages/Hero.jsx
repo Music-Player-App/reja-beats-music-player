@@ -17,7 +17,7 @@ function Hero() {
       setTimeout(() => {
         setCurrentImage(prev => (prev + 1) % images.length);
         setFlip(false);
-      }, 500); // match the flip animation duration
+      }, 500); 
     }, 3000);
 
     return () => clearInterval(interval);
