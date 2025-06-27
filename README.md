@@ -13,13 +13,13 @@ Media file storage with Cloudinary
 
 ##  How It Works
 
--When the page loads, it shows songs by **Drake** by default.
--As the user types in the search bar, songs related to the query are automatically fetched and displayed.
--Each song result includes the track name, artist, album art, and a preview audio player.
--Search music via iTunes Search API (live search with debounce)
--Register/login to manage personal songs via the backend
--Upload songs (title, artist, album cover, audio file) stored securely in Cloudinary
--View their uploaded songs alongside iTunes results (optional)
+ -When the page loads, it shows songs by **Drake** by default.
+ -As the user types in the search bar, songs related to the query are automatically fetched and displayed.
+ -Each song result includes the track name, artist, album art, and a preview audio player.
+ -Search music via iTunes Search API (live search with debounce)
+ -Register/login to manage personal songs via the backend
+ -Upload songs (title, artist, album cover, audio file) stored securely in Cloudinary
+ -View their uploaded songs alongside iTunes results (optional)
 
 ##  Features
 
