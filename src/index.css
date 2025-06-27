@@ -673,6 +673,38 @@ h2 {
   }
 }
 
+/* Icon button wrapper */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  padding: 0.25rem;
+  font-size: 1.2rem;       /* Adjust icon size */
+  color: #fff;             /* Icon color */
+  background: transparent; /* No background by default */
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.1s;
+}
+
+/* Hover state */
+.icon-btn:hover {
+  color: #1db954;          /* Highlight color on hover */
+  transform: scale(1.1);
+}
+
+/* Active (click) state */
+.icon-btn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile dropdown item override (if needed) */
+.mobile-menu .icon-btn {
+  margin: 0 0.5rem 0 0;
+}
+
+
 /* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px) {
   h1 {
