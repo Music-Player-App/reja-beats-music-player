@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 function Login({ onLogin }) {
-  const [form, setForm] = useState({ username: '', password: '' });
+  const [form, setForm] = useState({ email: '', password: '' }); 
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ function Login({ onLogin }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify(form),
+        body: JSON.stringify(form), 
       });
 
       if (!res.ok) throw new Error('Login failed');
@@ -44,10 +44,11 @@ function Login({ onLogin }) {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
-          name="username"
-          value={form.username}
+          name="email"
+          type="email"
+          value={form.email}
           onChange={handleChange}
-          placeholder="Username"
+          placeholder="Email"
           required
         />
         <input
