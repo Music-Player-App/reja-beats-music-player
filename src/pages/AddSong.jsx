@@ -4,10 +4,10 @@ import 'aos/dist/aos.css';
 
 function AddSong() {
   const [formData, setFormData] = useState({
-    trackName: '',
-    artistName: '',
-    artworkUrl100: '',
-    previewUrl: '',
+    title: '',
+    artist: '',
+    album_cover: '',
+    file: null,
   });
 
   const [success, setSuccess] = useState(false);
@@ -18,21 +18,29 @@ function AddSong() {
   }, []);
 
   const handleChange = (e) => {
+    const { name, value, files } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: files ? files[0] : value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccess(false);
+
+    const songData = new FormData();
+    songData.append('title', formData.title);
+    songData.append('artist', formData.artist);
+    songData.append('album_cover', formData.album_cover);
+    songData.append('file', formData.file);
 
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        credentials: 'include',
+        body: songData, // do not set Content-Type manually
       });
 
       if (!res.ok) throw new Error('Failed to upload song.');
@@ -40,13 +48,13 @@ function AddSong() {
       setSuccess(true);
       setTimeout(() => setSuccess(false), 4000);
       setFormData({
-        trackName: '',
-        artistName: '',
-        artworkUrl100: '',
-        previewUrl: '',
+        title: '',
+        artist: '',
+        album_cover: '',
+        file: null,
       });
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Something went wrong.');
     }
   };
 
@@ -61,33 +69,31 @@ function AddSong() {
         <form className="song-form" onSubmit={handleSubmit}>
           <input
             type="text"
-            name="trackName"
+            name="title"
             placeholder="Song Title"
-            value={formData.trackName}
+            value={formData.title}
             onChange={handleChange}
             required
           />
           <input
             type="text"
-            name="artistName"
+            name="artist"
             placeholder="Artist Name"
-            value={formData.artistName}
+            value={formData.artist}
             onChange={handleChange}
             required
           />
           <input
             type="url"
-            name="artworkUrl100"
+            name="album_cover"
             placeholder="Album Cover URL (image)"
-            value={formData.artworkUrl100}
+            value={formData.album_cover}
             onChange={handleChange}
-            required
           />
           <input
-            type="url"
-            name="previewUrl"
-            placeholder="Preview Audio URL"
-            value={formData.previewUrl}
+            type="file"
+            name="file"
+            accept=".mp3"
             onChange={handleChange}
             required
           />
