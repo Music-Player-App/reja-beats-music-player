@@ -11,6 +11,7 @@
     "mock-api": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "aos": "^2.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
