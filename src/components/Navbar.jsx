@@ -1,6 +1,6 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useState } from 'react';
-import { User } from 'lucide-react'; // profile icon
+// Removed lucide-react import
 
 function Navbar({ user }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,7 @@ function Navbar({ user }) {
       <div className="navbar-login desktop-nav">
         {user && (
           <Link to="/profile" className="icon-btn" title="My Profile">
-            <User size={20} />
+            <i className="fas fa-user"></i>
           </Link>
         )}
         {user ? (
@@ -53,7 +53,7 @@ function Navbar({ user }) {
           <li className="mobile-login">
             {user && (
               <Link to="/profile" className="icon-btn" onClick={closeMenu} title="My Profile">
-                <User size={20} />
+                <i className="fas fa-user"></i>
               </Link>
             )}
             {user ? (
