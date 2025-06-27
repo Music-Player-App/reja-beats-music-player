@@ -76,7 +76,11 @@ function Profile() {
         credentials: 'include',
       });
       if (!res.ok) throw new Error();
+      // Clear client auth state
+      localStorage.removeItem('loggedInUser');
+      // Redirect to home (Hero)
       navigate('/');
+      window.location.reload(); // ensure state resets
     } catch {
       setError('Failed to delete profile');
     }
