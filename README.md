@@ -13,8 +13,12 @@ Media file storage with Cloudinary
 
 ##  How It Works
 
- - When the page loads, it shows songs by **Drake** by default.
- - As the user types in the search bar, songs related to the query are automatically fetched and displayed.
+ - When the page loads, it shows the home page
+   ----
+ - As the user navigates to 'add music', the page takes you to a 'login' page.
+   ----
+ - user logs in(if has signed in) or navigates to sign_up page.
+   ----
  - Each song result includes the track name, artist, album art, and a preview audio player.
  - Search music via iTunes Search API (live search with debounce)
  - Register/login to manage personal songs via the backend
