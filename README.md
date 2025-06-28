@@ -22,7 +22,9 @@ Media file storage with Cloudinary
 - Uploaded files are securely stored on Cloudinary
 - Home page with a user-friendly music discovery experience
 - View and manage your own uploaded songs
-
+- Profile page:
+  - View and update profile details (e.g., name, email)
+  - Change password securely
 ---
 
 ## Tech Stack
