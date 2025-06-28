@@ -11,20 +11,28 @@ Uploading and managing user songs
 
 Media file storage with Cloudinary
 
-##  How It Works
+## Features
+- Displays track name, artist, album art, and a preview audio player
+- Authentication (login/signup) with secure session handling
+- Upload your own songs:
+  - Title
+  - Artist
+  - Album cover
+  - Audio file
+- Uploaded files are securely stored on Cloudinary
+- Home page with a user-friendly music discovery experience
+- View and manage your own uploaded songs
 
- - When the page loads, it shows the home page
-   ----
- - As the user navigates to 'add music', the page takes you to a 'login' page.
-   ----
- - user logs in(if has signed in) or navigates to sign_up page.
-   ----
- - Each song result includes the track name, artist, album art, and a preview audio player.
- - Search music via iTunes Search API (live search with debounce)
- - Register/login to manage personal songs via the backend
- - Upload songs (title, artist, album cover, audio file) stored securely in Cloudinary
- - View their uploaded songs alongside iTunes results (optional)
+---
 
+## Tech Stack
+
+- Frontend: React 
+- Routing: React Router DOM
+- Styling: CSS Modules 
+- API:Custom Backend 
+- Media Uploads: Cloudinary
+- State Management: React useState/useEffect (
 ##  Features
 
 - Live search functionality (with debounce effect)
@@ -36,6 +44,12 @@ Media file storage with Cloudinary
 
 - React
 - CSS (custom styling)
-- iTunes Search API
+---
+## Notes
+- Ensure CORS is properly configured on the backend to accept requests from the frontend.
+
+- Keep your Cloudinary API credentials secure and out of public repositories.
+
+
 
 
