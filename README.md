@@ -51,6 +51,11 @@ Media file storage with Cloudinary
 - Ensure CORS is properly configured on the backend to accept requests from the frontend.
 
 - Keep your Cloudinary API credentials secure and out of public repositories.
+# About REJA BEATS
+
+REJA BEATS is a platform dedicated to helping users **create**, **explore**, and **enjoy** powerful musical experiences. Here, music is more than sound — it's a message.
+
+---
 
 
 
